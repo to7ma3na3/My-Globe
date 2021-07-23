@@ -27,6 +27,58 @@ class EarthDrawer {
   class Earth {
     constructor(drawer) {
       this.r = 200;
+      this.si0 = 0;
+      this.si5 = 0.09;
+      this.si10 = 0.17;
+      this.si20 = 0.34;
+      this.si25 = 0.42;
+      this.si30 = 0.5;
+      this.si35 = 0.57;
+      this.si40 = 0.64;
+      this.si45 = 0.71;
+      this.si50 = 0.77;
+      this.si55 = 0.82;
+      this.si60 = 0.87;
+      this.si70 = 0.94;
+      this.si75 = 0.97;
+      this.si80 = 0.98;
+      this.si90 = 1;
+      this.si95 = 1;
+      this.s100 = 0.98;
+      this.si105 = 0.97;
+      this.si120 = 0.87;
+      this.si130 = 0.77;
+      this.si140 = 0.64;
+      this.si145 = 0.57;
+      this.si170 = 0.17;
+      this.si180 = 0;
+      this.co0 = 1;
+      this.co5 = 1;
+      this.co10 = 0.98;
+      this.co20 = 0.94;
+      this.co25 = 0.91;
+      this.co30 = 0.87;
+      this.co35 = 0.82;
+      this.co40 = 0.77;
+      this.co45 = 0.71;
+      this.co50 = 0.64;
+      this.co55 = 0.57;
+      this.co60 = 0.50;
+      this.co70 = 0.34;
+      this.co75 = 0.26;
+      this.co80 = 0.17;
+      this.co85 = 0.09;
+      this.co90 = 0;
+      this.co95 = -0.09;
+      this.co100 = -0.17;
+      this.co105 = -0.26;
+      this.co120 = -0.5;
+      this.co130 = -0.64;
+      this.co140 = -0.77;
+      this.co145 = -0.82;
+      this.co170 = -0.98;
+      this.co180 = -1;
+     
       this.drawer = drawer;
 
     }
@@ -45,8 +97,39 @@ class EarthDrawer {
             ctx.lineTo(0, -this.r + 3);
           }
         });
-        
       }
+      let angle1 = 0;
+        this.drawer.draw(angle1, ctx => {
+          ctx.moveTo(0, -this.r);
+            // ctx.lineTo(0, -this.r + 3);
+            ctx.font ='13px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('夜', 0, -this.r - 25);
+        });
+      let angle2 = 90;
+        this.drawer.draw(angle2, ctx => {
+          ctx.moveTo(0, -this.r);
+            // ctx.lineTo(0, -this.r + 3);
+            ctx.font ='13px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('朝', 0, -this.r - 25);
+        });
+      let angle3 = 180;
+        this.drawer.draw(angle3, ctx => {
+          ctx.moveTo(0, -this.r);
+            // ctx.lineTo(0, -this.r + 3);
+            ctx.font ='13px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('昼', 0, -this.r - 25);
+        });
+      let angle4 = 270;
+        this.drawer.draw(angle4, ctx => {
+          ctx.moveTo(0, -this.r);
+            // ctx.lineTo(0, -this.r + 3);
+            ctx.font ='13px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('夕', 0, -this.r - 25);
+        });
     }
 
     drawMeridians() {
@@ -251,33 +334,87 @@ class EarthDrawer {
         ctx.fillStyle = 'hsl(0, 50%, 50%)';
         // ctx.moveTo(0, 0.87);
         ctx.arc(0, 0, 1 * this.r, 0, 2 * Math.PI);
-        ctx.setLineDash([1, 4]);
-        ctx.font ='13px Arial';
-        ctx.textAlign = 'center';
+        ctx.setLineDash([2, 4]);
       });
       // 北緯30度
       this.drawer.draw(this.s * 6, ctx => {
         ctx.fillStyle = 'hsl(0, 50%, 50%)';
         ctx.arc(0, 0, 0.87 * this.r, 0, 2 * Math.PI);
         ctx.setLineDash([1, 4]);
-        ctx.font ='13px Arial';
-        ctx.textAlign = 'center';
-       });
+      });
       // 北緯60度
       this.drawer.draw(this.s * 6, ctx => {
         ctx.fillStyle = 'hsl(0, 50%, 50%)';
-        // ctx.moveTo(0, 0.87);
         ctx.arc(0, 0, 0.5 * this.r, 0, 2 * Math.PI);
         ctx.setLineDash([1, 4]);
-        ctx.font ='13px Arial';
-        ctx.textAlign = 'center';
-       });
+      });
       
-    }
+      // グリーンランド
+      this.drawer.draw(this.s * 6, ctx => {
+        ctx.moveTo(this.r * this.co85 * this.si40, -this.r * this.co85 * this.co40);
+        ctx.lineTo(this.r * this.co80 * this.si20, -this.r * this.co80 * this.co20);
+        ctx.lineTo(this.r * this.co60 * this.si45, -this.r * this.co60 * this.co45);
+        ctx.lineTo(this.r * this.co80 * this.si70, -this.r * this.co80 * this.co70);
+        ctx.lineTo(this.r * this.co85 * this.si40, -this.r * this.co85 * this.co40);
+      });
+        // アメリカ大陸
+        this.drawer.draw(this.s * 6, ctx => {
+          ctx.moveTo(this.r * this.co70 * this.si170, -this.r * this.co70 * this.co170);
+          ctx.lineTo(this.r * this.co70 * this.si90, -this.r * this.co70 * this.co90);
+          ctx.lineTo(this.r * this.co50 * this.si55, -this.r * this.co50 * this.co55);
+          ctx.lineTo(this.r * this.co30 * this.si90, -this.r * this.co30 * this.co90);
+          ctx.lineTo(this.r * this.co10 * this.si80, -this.r * this.co10 * this.co80);
+          ctx.lineTo(this.r * this.co0 * this.si50, -this.r * this.co0 * this.co50);
+          ctx.moveTo(this.r * this.co0 * this.si80, -this.r * this.co0 * this.co80);
+          ctx.lineTo(this.r * this.co10 * this.si80, -this.r * this.co10 * this.co80);
+          ctx.lineTo(this.r * this.co35 * this.si120, -this.r * this.co35 * this.co120);
+          ctx.lineTo(this.r * this.co70 * this.si170, -this.r * this.co70 * this.co170);
+        });
+        // ユーラシア・アフリカ大陸
+        this.drawer.draw(this.s * 6, ctx => {
+          ctx.moveTo(this.r * this.co70 * -this.si180, -this.r * this.co70 * this.co180);
+          ctx.lineTo(this.r * this.co60 * -this.si140, -this.r * this.co60 * this.co140);
+          ctx.lineTo(this.r * this.co0 * -this.si105, -this.r * this.co0 * this.co105);
+          ctx.lineTo(this.r * this.co20 * -this.si90, -this.r * this.co20 * this.co90);
+          ctx.lineTo(this.r * this.co5 * -this.si75, -this.r * this.co5 * this.co75);
+          ctx.lineTo(this.r * this.co25 * -this.si60, -this.r * this.co25 * this.co60);
+          ctx.lineTo(this.r * this.co0 * -this.si40, -this.r * this.co0 * this.co40);
+          ctx.moveTo(this.r * this.co0 * this.si10, -this.r * this.co0 * this.co10);
+          ctx.lineTo(this.r * this.co20 * this.si20, -this.r * this.co20 * this.co20);
+          ctx.lineTo(this.r * this.co35 * this.si10, -this.r * this.co35 * this.co10);
+          ctx.lineTo(this.r * this.co30 * -this.si30, -this.r * this.co30 * this.co30);
+          ctx.lineTo(this.r * this.co35 * -this.si35, -this.r * this.co35 * this.co35);
+          ctx.lineTo(this.r * this.co35 * this.si10, -this.r * this.co35 * this.co10);
+          ctx.lineTo(this.r * this.co55 * -this.si10, -this.r * this.co55 * this.co10);
+          ctx.lineTo(this.r * this.co60 * -this.si5, -this.r * this.co60 * this.co5);
+          ctx.lineTo(this.r * this.co70 * -this.si25, -this.r * this.co70 * this.co25);
+          ctx.lineTo(this.r * this.co75 * -this.si100, -this.r * this.co75 * this.co100);
+          ctx.lineTo(this.r * this.co70 * -this.si180, -this.r * this.co70 * this.co180);
+        });
+          // 日本
+          this.drawer.draw(this.s * 6, ctx => {
+            ctx.moveTo(this.r * this.co45 * -this.si145, -this.r * this.co45 * this.co145);
+            ctx.lineTo(this.r * this.co35 * -this.si140, -this.r * this.co35 * this.co140);
+            ctx.lineTo(this.r * this.co30 * -this.si130, -this.r * this.co30 * this.co130);
+            ctx.lineTo(this.r * this.co45 * -this.si145, -this.r * this.co45 * this.co145);
+        });
+          // イギリス
+          this.drawer.draw(this.s * 6, ctx => {
+            ctx.moveTo(this.r * this.co60 * this.si5, -this.r * this.co60 * this.co5);
+            ctx.font ='16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('英国', this.r * this.co60 * this.si5 + 30, -this.r * this.co60 * this.co5 - 10);
+            ctx.lineTo(this.r * this.co50 * this.si0, -this.r * this.co50 * this.co0);
+            ctx.lineTo(this.r * this.co50 * this.si10, -this.r * this.co50 * this.co10);
+            ctx.lineTo(this.r * this.co60 * this.si5, -this.r * this.co60 * this.co5);
+        });
+
+
+    } 
     
     update() {
       this.h = (new Date()).getHours();
-      this.m = (new Date()).getMinutes();
+      // this.m = (new Date()).getMinutes();
       this.s = (new Date()).getSeconds();
     }
     
@@ -291,7 +428,7 @@ class EarthDrawer {
       setTimeout(() => {
         this.run();
 
-      }, 10);
+      }, 100);
     }
   }
 
