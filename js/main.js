@@ -393,10 +393,12 @@ class EarthDrawer {
         });
           // 日本
           this.drawer.draw(this.s * 6, ctx => {
+            ctx.fillStyle = 'pink';
             ctx.moveTo(this.r * this.co45 * -this.si145, -this.r * this.co45 * this.co145);
             ctx.lineTo(this.r * this.co35 * -this.si140, -this.r * this.co35 * this.co140);
             ctx.lineTo(this.r * this.co30 * -this.si130, -this.r * this.co30 * this.co130);
             ctx.lineTo(this.r * this.co45 * -this.si145, -this.r * this.co45 * this.co145);
+            ctx.fill();
         });
           // イギリス
           this.drawer.draw(this.s * 6, ctx => {
